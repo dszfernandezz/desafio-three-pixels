@@ -86,7 +86,7 @@ function SignupForm() {
             {/* Data de Nascimento */}
             <div className="forms-birthday">
               <label className="block text-sm font-medium mb-1">
-                Data de Nascimento:{" "}
+                Data de Nascimento:
               </label>
               <input
                 className="w-full px-4 py-3 rounded-lg border border-gray-300"
