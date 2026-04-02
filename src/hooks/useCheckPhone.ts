@@ -2,16 +2,16 @@ import { useState } from "react";
 import { checkPhoneRequest  } from "../services/api";
 
 interface useCheckPhoneReturn {
-    loading: Boolean;
+    loading: boolean;
     error: string | null;
-    success: Boolean;
+    success: boolean;
     validarCelular: (phone: string) => Promise<void>
 }
 
 function useCheckPhone(): useCheckPhoneReturn {
-    const [loading, setLoading] = useState<Boolean>(false)
+    const [loading, setLoading] = useState<boolean>(false)
     const [error, setError] = useState<string | null>(null)
-    const [success, setSuccess] = useState<Boolean>(false)
+    const [success, setSuccess] = useState<boolean>(false)
 
     const validarCelular = async (phone: string): Promise<void>  => {
         if(!phone) return;

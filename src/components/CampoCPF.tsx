@@ -1,11 +1,16 @@
-import { Link } from "react-router-dom";
+interface CampoCPFProps {
+  username: string;
+  setUsername: (value: string) => void;
+  userExist: boolean;
+  loading: boolean;
+}
 
 function CampoCPF({
     username,
     setUsername,
     userExist,
-    loading
-}) {
+    loading,
+}: CampoCPFProps) {
   return (
     <div>
       <label className="block text-sm font-medium mb-1">CPF</label>

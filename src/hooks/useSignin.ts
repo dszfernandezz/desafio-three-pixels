@@ -1,14 +1,13 @@
 import { useState } from "react";
-import { preSigninRequest } from "../services/api";
-import { signinRequest } from "../services/api";
+import { preSigninRequest, signinRequest } from "../services/api";
 
 function useSignin() {
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
+  const [error, setError] = useState<string | null>(null);
   const [userExist, setUserExist] = useState(false);
   const [isAuthenticate, setAuthenticate] = useState(false);
 
-  const verificaUsername = async (username) => {
+  const verificaUsername = async (username: string) => {
     if (!username) return;
 
     setLoading(true);
@@ -16,13 +15,13 @@ function useSignin() {
 
     try {
       const data = await preSigninRequest(username);
-      if (data && data.userExist !== false) {
+      if (data && data.username) {
         setUserExist(true);
       } else {
         setError("Usuário não cadastrado no sistema.");
         setUserExist(false);
       }
-    } catch (err) {
+    } catch (err: any) {
       setError(err.message);
       setUserExist(false);
     } finally {
@@ -30,7 +29,7 @@ function useSignin() {
     }
   };
 
-  const realizeSignin = async (username, password) => {
+  const realizeSignin = async (username: string, password: string) => {
     setLoading(true);
     setError(null);
 
@@ -38,7 +37,7 @@ function useSignin() {
       const data = await signinRequest(username, password);
       setAuthenticate(true);
       return data;
-    } catch (err) {
+    } catch (err: any) {
       setError(err.message);
       return false;
     } finally {

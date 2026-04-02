@@ -15,12 +15,12 @@ function SigninForm() {
   const { loading, error, userExist, verificaUsername, realizeSignin } =
     useSignin();
 
-  const verificaUserExist = (e) => {
+  const verificaUserExist = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     verificaUsername(username);
   };
 
-  const realizeLogin = async (e) => {
+  const realizeLogin = async (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     const data = await realizeSignin(username, password);
     if (data) {

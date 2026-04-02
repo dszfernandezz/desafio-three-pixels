@@ -36,7 +36,7 @@ function SignupForm() {
     try {
       await signupRequest(formData);
       alert("Cadastro realizado com sucesso!");
-    } catch (err) {
+    } catch (err: any) {
       alert(err.message || "Erro ao realizar cadastro");
     }
   };
@@ -45,7 +45,7 @@ function SignupForm() {
 
   return (
     <div className="body bg-white">
-      <div class="container mx-auto px-4 py-12 max-w-4xl ">
+      <div className="container mx-auto px-4 py-12 max-w-4xl ">
         <div className="bg-white rounded-4xl shadow-xl p-10">
           
           <HeaderBackLink />
